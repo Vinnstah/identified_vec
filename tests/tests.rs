@@ -693,3 +693,11 @@ fn testApa() {
         banan: IdApa
     }
 }
+
+newtype_identified_vec!(of: u8, named: IdentifiedEmailAddresses);
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, Eq)]
+// #[serde(rename_all = "camelCase")]
+pub struct PersonaData {
+    email_addresses: IdentifiedEmailAddresses,
+    entries: Vec<String>,
+}

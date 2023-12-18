@@ -16,7 +16,7 @@ serde = ["dep:serde"]
 id_prim = []
 
 [dependencies]
-serde = { version = "1.0.193", optional = true }
+serde = { version = "1.0.193", optional = true, features = ["derive"] }
 thiserror = "1.0.50"
 
 [dev-dependencies]
