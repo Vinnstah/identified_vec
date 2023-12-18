@@ -59,7 +59,7 @@ macro_rules! newtype_identified_vec {
             }
         }
 
-        #[cfg(any(test, feature = "serde"))]
+        #[cfg(any(feature = "serde"))]
         impl serde::Serialize for $struct_name
         where
             $item_ty: serde::Serialize + identified_vec::Identifiable + std::fmt::Debug + Clone,
@@ -75,7 +75,7 @@ macro_rules! newtype_identified_vec {
             }
         }
 
-        #[cfg(any(test, feature = "serde"))]
+        #[cfg(any(feature = "serde"))]
         impl<'de> serde::Deserialize<'de> for $struct_name
         where
             $item_ty:

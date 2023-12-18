@@ -668,3 +668,28 @@ fn test_macro() {
     sut.update_or_append(User::blob_jr());
     assert_eq!(sut.items(), [User::blob_sr(), User::blob_jr()]);
 }
+
+#[test]
+fn testApa() {
+    newtype_identified_vec!(of: Apa, named: IdApa);
+
+    #[cfg_attr(any(feature = "serde"), derive(Serialize, Deserialize))]
+    #[derive( Clone, Debug, Eq, PartialEq)]
+    pub struct Apa {
+        id: String,
+        apa: String
+    }
+
+    impl Identifiable for Apa {
+        type ID = String;
+
+        fn id(&self) -> Self::ID {
+            self.id.clone()
+        }
+    }
+    
+    #[derive(Serialize, Deserialize)]
+    pub struct Bana {
+        banan: IdApa
+    }
+}
